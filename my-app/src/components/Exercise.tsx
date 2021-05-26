@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Course(){
+export default function Exercise(){
 
     return(
         <div>
-            <h1>this is cart  page</h1>
+            <h1>this is course page</h1>
         </div>
 
     )

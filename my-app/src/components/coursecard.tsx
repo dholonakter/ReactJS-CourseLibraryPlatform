@@ -5,8 +5,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Grid from "@material-ui/core/Grid"
-
+import courses from './courses.json';
+import Course from './Cart';
 
 const useStyles = makeStyles({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
   bullet: {
     display: 'inline-block',
-    margin: '0 2px',
+    margin: '0 1px',
     transform: 'scale(0.8)',
   },
   title: {
@@ -23,33 +23,45 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  courses:{
+    padding: 20
+  }
 });
 
-export default function OutlinedCard() {
+
+export default function SimpleCard() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.root} variant="outlined">
+    <Typography className="courses">
+      {courses.map(course=>{
+        return(
+    <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
+      <Typography variant="h5" component="h2">
+        {course.title}
+
         </Typography>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          Arjan Egges, Utrecht University
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           adjective
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
+          {course.demoCourse}
           <br />
-          {'"a benevolent smile"'}
+          {course.description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Read More</Button>
       </CardActions>
+
     </Card>
+        )
+     })}
+    </Typography>
   );
 }

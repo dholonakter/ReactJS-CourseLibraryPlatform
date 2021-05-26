@@ -12,7 +12,6 @@ export default function Course(){
 
                return <div>
                    <h1>{coursedetail.title}</h1>
-                   <p>{coursedetail.content}</p>
                    </div>
            })}
 
