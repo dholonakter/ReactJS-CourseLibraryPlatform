@@ -5,7 +5,6 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import courses from './courses.json';
 import Course from './Cart';
 
 const useStyles = makeStyles({
@@ -29,18 +28,17 @@ const useStyles = makeStyles({
 });
 
 
-export default function SimpleCard() {
+export default function SimpleCourseCard(props:any) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+  console.log(props);
 
   return (
-    <Typography className="courses">
-      {courses.map(course=>{
-        return(
+     
     <Card className={classes.root}>
       <CardContent>
       <Typography variant="h5" component="h2">
-        {course.title}
+         {props.course}
 
         </Typography>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -50,9 +48,6 @@ export default function SimpleCard() {
           adjective
         </Typography>
         <Typography variant="body2" component="p">
-          {course.demoCourse}
-          <br />
-          {course.description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -60,8 +55,6 @@ export default function SimpleCard() {
       </CardActions>
 
     </Card>
-        )
-     })}
-    </Typography>
+  
   );
 }

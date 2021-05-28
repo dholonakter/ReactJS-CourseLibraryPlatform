@@ -6,9 +6,6 @@ import Tab from '@material-ui/core/Tab';
 import CourseCard from './coursecard'
 
 
-
-
-
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -22,7 +19,7 @@ export default function CenteredTabs() {
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
-  };
+  };  
 
   return (
     <Paper className={classes.root}>

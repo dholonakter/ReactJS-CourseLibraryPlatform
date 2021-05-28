@@ -1,7 +1,8 @@
-import React from 'react'
 import Grid from "@material-ui/core/Grid"
 import CourseCard from './coursecard'
 import { makeStyles } from '@material-ui/core/styles';
+import courses from './courses.json';
+
 
 const useStyles = makeStyles({
     gridContainer: {
@@ -14,29 +15,35 @@ const useStyles = makeStyles({
 
 export default function Home(){
     const classes=useStyles();
+    // {courses.map(()=>{
+    // 
     
 
     return( 
-
+       
         <Grid container spacing={3}   className={classes.gridContainer} justify="center">
-        
+           {/* {courses.map(()=>{
+            
+          })}   
         <Grid item xs={4}>
-            <CourseCard/>
+         
+            <CourseCard courseTitle="c sharp"/>
         </Grid>
        
         <Grid item xs={4}>
-        <CourseCard/>
+        <CourseCard   courseTitle=" Web development"/>
 
         </Grid>
         
         <Grid item xs={4}>
-        <CourseCard/>
+        <CourseCard courseTitle=" Python Programming"/>
+
+        </Grid> */}
+        {courses.map(course => 
+        <Grid item ><CourseCard course={course.title} /></Grid>)}
 
         </Grid>
-       
-        
-       
 
-      </Grid>
     )
+    
 }
