@@ -1,21 +1,36 @@
-import { Search } from '@material-ui/icons'
-import React, { Component } from 'react'
-import coursedata from './courses.json'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
-export default function Course(){
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+  },
+});
 
-    return(
-        <div>
-            <h1>this is course item</h1>
-           
-           {coursedata.map((coursedetail, index)=>{
+export default function CenteredTabs() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
-               return <div>
-                   <h1>{coursedetail.title}</h1>
-                   </div>
-           })}
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    setValue(newValue);
+  };
 
-        </div>
-
-    )
+  return (
+    <Paper className={classes.root}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        centered
+      >
+        <Tab label="Item One" />
+        <Tab label="Item Two" />
+        <Tab label="Item Three" />
+      </Tabs>
+    </Paper>
+  );
 }

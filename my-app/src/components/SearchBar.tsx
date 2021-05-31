@@ -1,7 +1,6 @@
 import React from 'react';
 
 import SearchBar from "material-ui-search-bar";
-import CourseCard from './coursecard'
 import useState from 'react'
 
 
@@ -13,15 +12,10 @@ export default function Search(){
         
       
         <SearchBar
-      //   onChange={(e) => 
-          
-      //     setSearchTerm(e.target.value)
-        
-        
-      //   }
+            
+           // onChange={(e) => (e.value)}
 
-
-      //   onRequestSearch={() => console.log('onRequestSearch')}
+       onRequestSearch={() => console.log('onRequestSearch')}
       style={{
         margin: '0 auto',
         maxWidth: 1000
